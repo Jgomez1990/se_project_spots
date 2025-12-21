@@ -1,0 +1,23 @@
+.header {
+  max-width: 1440px;
+  height: 46px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.1);
+  background-color: #ffffff;
+}
+
+.header__logo {
+  width: 76px;
+  height: 26px;
+}
+
+@media (max-width: 630px) {
+  .header {
+    max-width: none;
+    margin: 0;
+    padding: 0 20px;
+  }
+}

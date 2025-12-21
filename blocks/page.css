@@ -1,4 +1,17 @@
+body {
+  margin: 0;
+  background-color: #f7f3e8;
+}
+
 .page {
-  background-color: #fcf5e5;
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background-color: #f7f3e8;
+  font-family: "Poppins", sans-serif;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.content {
+  background-color: #f7f3e8;
+  padding: 0 20px;
 }
