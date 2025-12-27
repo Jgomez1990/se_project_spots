@@ -1,6 +1,6 @@
 .header {
   max-width: 1440px;
-  height: 46px;
+  padding: 10px 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .header__logo {
-  width: 76px;
+  width: 94px;
   height: 26px;
 }
 

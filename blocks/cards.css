@@ -1,10 +1,8 @@
 .cards {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0;
-  padding-bottom: 72px;
-  margin-top: 20px;
-  border-top: 1px solid #212121;
+  padding: 20px 0 40px;
+  border-bottom: 1px solid #21212166;
 }
 
 .cards__list {
@@ -12,9 +10,9 @@
   margin: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 36px;
-  column-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 413px);
+  justify-content: center;
+  gap: 40px 20px;
 }
 
 .card__image {
@@ -22,7 +20,8 @@
   height: 413px;
   display: block;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card__title {
@@ -34,7 +33,7 @@
   font-weight: 500;
   line-height: 1.2;
   color: #212121;
-  max-width: 190px;
+  max-width: 353px;
 }
 
 .card__like-icon {
@@ -51,23 +50,37 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+
+.card__like-button:hover {
+  opacity: 1;
 }
 
 .card__description {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0 0;
 }
 
 @media (max-width: 1320px) {
   .cards__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 413px);
+    justify-content: center;
   }
 }
 
 @media (max-width: 630px) {
   .cards__list {
     grid-template-columns: 1fr;
+  }
+
+  .card__title {
+    max-width: 235px;
+  }
+
+  .card__image {
+    height: 288px;
   }
 }

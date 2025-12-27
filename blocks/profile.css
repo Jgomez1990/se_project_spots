@@ -3,7 +3,7 @@
   align-items: flex-start;
   max-width: 1440px;
   margin: 0 auto;
-  margin-top: 34px;
+  padding: 34px 0;
 }
 
 .profile__info {
@@ -11,13 +11,14 @@
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  height: 190px;
+  min-height: 190px;
 }
 
 .profile__avatar {
   width: 190px;
   height: 190px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .profile__title {
@@ -27,6 +28,12 @@
   font-weight: 500;
   line-height: 1;
   color: #212121;
+  max-width: 420px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__description {
@@ -35,7 +42,13 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
-  color: rgba(33, 33, 33, 0.7);
+  color: #212121b2;
+  max-width: 420px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__add-button {
@@ -56,6 +69,11 @@
   align-self: flex-end;
 }
 
+.profile__add-button:hover {
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+
 .profile__edit-button {
   background: transparent;
   border: none;
@@ -69,7 +87,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 110px;
+  margin-top: auto;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.8;
+  transition: opacity 200ms;
 }
 
 @media (max-width: 630px) {
@@ -79,12 +102,16 @@
     gap: 12px;
   }
 
+  .profile__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
   .profile__info {
     margin-left: 0;
     margin-right: 0;
     align-items: center;
     text-align: center;
-    height: auto;
     width: 100%;
     max-width: 288px;
   }
