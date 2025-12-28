@@ -16,7 +16,7 @@
 }
 
 .card__image {
-  width: 100%;
+  width: 413px;
   height: 413px;
   display: block;
   object-fit: cover;
@@ -64,16 +64,9 @@
   align-items: center;
 }
 
-@media (max-width: 1320px) {
-  .cards__list {
-    grid-template-columns: repeat(2, 413px);
-    justify-content: center;
-  }
-}
-
 @media (max-width: 630px) {
   .cards__list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, 288px);
   }
 
   .card__title {
@@ -81,6 +74,7 @@
   }
 
   .card__image {
+    width: 100%;
     height: 288px;
   }
 }
