@@ -171,12 +171,12 @@
       <footer class="footer page__section">
       <p class="footer__copyright">2023 &copy; Spots</p>
     </footer>
-  <div class="modal modal_is-opened">
+<div class="modal">
   <div class="modal__container">
     <button type="button" class="modal__close-btn">x</button>
     <div class="modal__content">
       <h2 class="modal__title">Edit profile</h2>
-     <form class="modal__form">
+      <form class="modal__form">
         <label for="profile-name-input" class="modal__label">
           Name
           <input
@@ -195,11 +195,12 @@
             placeholder="Describe yourself"
           />
         </label>
-       <button type="submit" class="modal__submit-btn">Save</button>
+        <button type="submit" class="modal__submit-btn">Save</button>
       </form>
     </div>
   </div>
-  <div class="modal modal_is-opened">
+</div>
+<div class="modal">
   <div class="modal__container">
     <button type="button" class="modal__close-btn">x</button>
     <div class="modal__content">
@@ -214,10 +215,10 @@
             placeholder="Place a link to the picture"
           />
         </label>
-      <label for="profile-description-input" class="modal__label">
+        <label for="card-caption-input" class="modal__label">
           Caption
           <input
-            id="profile-description-input"
+            id="card-caption-input"
             type="text"
             class="modal__input"
             placeholder="Type your caption"
