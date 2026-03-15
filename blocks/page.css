@@ -1,13 +1,9 @@
-body {
-  margin: 0;
-  background-color: #fcf5e5;
-}
-
 .page {
   background-color: #fcf5e5;
   font-family: "Poppins", Arial, sans-serif;
   min-width: 320px;
   margin: 0 auto;
+  padding: 0;
 }
 
 .content {

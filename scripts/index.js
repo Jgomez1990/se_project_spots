@@ -18,6 +18,8 @@ const profileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
 
+const editProfileFormElement = editProfileModal.querySelector(".modal__form");
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -33,6 +35,15 @@ function handleAddCardSubmit(evt) {
   console.log(cardImageInput.value);
 
   closeModal(newPostModal);
+}
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileTitle.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+
+  closeModal(editProfileModal);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -54,3 +65,4 @@ closeNewPostButton.addEventListener("click", () => {
 });
 
 newPostFormElement.addEventListener("submit", handleAddCardSubmit);
+editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
