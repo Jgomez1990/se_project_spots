@@ -133,4 +133,8 @@
     width: calc(100% - 40px);
     padding: 25px 20px;
   }
+
+  .modal__submit-btn {
+    width: 100%;
+  }
 }

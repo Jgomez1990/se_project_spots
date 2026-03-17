@@ -35,6 +35,8 @@ function handleAddCardSubmit(evt) {
   console.log(cardImageInput.value);
 
   closeModal(newPostModal);
+
+  evt.target.reset();
 }
 
 function handleProfileFormSubmit(evt) {
