@@ -22,7 +22,7 @@ const initialCards = [
   {
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  }
+  },
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -32,7 +32,14 @@ const closeEditProfileButton =
 
 const profileAddButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
+const previewModal = document.querySelector("#preview-modal");
+const previewImage = previewModal.querySelector(".modal__preview-image");
+const previewCaption = previewModal.querySelector(".modal__preview-caption");
+const closePreviewButton = previewModal.querySelector(".modal__close-btn");
 const closeNewPostButton = newPostModal.querySelector(".modal__close-btn");
+closePreviewButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 const newPostFormElement = newPostModal.querySelector(".modal__form");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
 const cardImageInput = newPostModal.querySelector("#card-image-input");
@@ -46,6 +53,8 @@ const profileDescriptionInput = editProfileModal.querySelector(
 );
 
 const editProfileFormElement = editProfileModal.querySelector(".modal__form");
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -54,12 +63,45 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardTitle.textContent = cardData.name;
+  cardImage.addEventListener("click", () => {
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewCaption.textContent = cardData.name;
+    openModal(previewModal);
+  });
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_liked");
+  });
+
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  return cardElement;
+}
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
-  console.log(cardCaptionInput.value);
-  console.log(cardImageInput.value);
+  const inputValues = {
+    name: cardCaptionInput.value,
+    link: cardImageInput.value,
+  };
+
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
 
   closeModal(newPostModal);
 
@@ -96,6 +138,8 @@ closeNewPostButton.addEventListener("click", () => {
 newPostFormElement.addEventListener("submit", handleAddCardSubmit);
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
-initialCards.forEach(function(card) {
-  console.log(card.name);
+initialCards.forEach(function (card) {
+  const cardElement = getCardElement(card);
+
+  cardsList.prepend(cardElement);
 });

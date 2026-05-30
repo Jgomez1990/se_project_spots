@@ -128,6 +128,33 @@
   opacity: 1;
 }
 
+.modal__preview-container {
+  position: relative;
+}
+
+.modal__preview-image {
+  display: block;
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.modal__preview-caption {
+  margin: 8px 0 0;
+  color: #fff;
+}
+
+.modal__close-btn_type_preview {
+  top: -40px;
+  right: -40px;
+  opacity: 1;
+  filter: invert(1);
+}
+
+.modal__close-btn_type_preview:hover {
+  opacity: 0.4;
+}
+
 @media screen and (max-width: 480px) {
   .modal__container {
     width: calc(100% - 40px);

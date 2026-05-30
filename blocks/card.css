@@ -1,3 +1,7 @@
+.card {
+  position: relative;
+}
+
 .card__image {
   width: 413px;
   height: 413px;
@@ -39,10 +43,45 @@
   opacity: 1;
 }
 
+.card__like-button:hover .card__like-icon {
+  content: url("../images/spots-images/like-hover.svg");
+}
+
+.card__like-button_liked .card__like-icon {
+  content: url("../images/spots-images/liked.svg");
+}
+
+.card__like-button_liked {
+  opacity: 1;
+}
+
+.card__like-button_liked:hover .card__like-icon {
+  content: url("../images/spots-images/liked-hover.svg");
+}
+
 .card__description {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.card__delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url("../images/spots-images/delete.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.card__delete-button:hover {
+  background-image: url("../images/spots-images/delete-hover.svg");
 }
 
 @media (max-width: 630px) {
