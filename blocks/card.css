@@ -9,6 +9,12 @@
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.card__image:hover {
+  opacity: 0.8;
 }
 
 .card__title {
@@ -43,20 +49,8 @@
   opacity: 1;
 }
 
-.card__like-button:hover .card__like-icon {
-  content: url("../images/spots-images/like-hover.svg");
-}
-
-.card__like-button_liked .card__like-icon {
-  content: url("../images/spots-images/liked.svg");
-}
-
 .card__like-button_liked {
   opacity: 1;
-}
-
-.card__like-button_liked:hover .card__like-icon {
-  content: url("../images/spots-images/liked-hover.svg");
 }
 
 .card__description {

@@ -140,8 +140,17 @@
 }
 
 .modal__preview-caption {
-  margin: 8px 0 0;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: #212121;
   color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
 }
 
 .modal__close-btn_type_preview {
@@ -163,5 +172,20 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__preview-image {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  .modal__preview-caption {
+    font-size: 16px;
+  }
+
+  .modal__close-btn_type_preview {
+    top: -30px;
+    right: 0;
   }
 }
