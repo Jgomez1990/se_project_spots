@@ -137,6 +137,7 @@
   max-width: 80vw;
   max-height: 80vh;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 .modal__preview-caption {
@@ -154,8 +155,8 @@
 }
 
 .modal__close-btn_type_preview {
-  top: -40px;
-  right: -40px;
+  top: 0;
+  right: -52px;
   opacity: 1;
   filter: invert(1);
 }
@@ -165,9 +166,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .modal__container {
-    width: calc(100% - 40px);
-    padding: 25px 20px;
+  .modal__close-btn_type_preview {
+    top: -40px;
+    right: 0;
   }
 
   .modal__submit-btn {
@@ -182,10 +183,5 @@
 
   .modal__preview-caption {
     font-size: 16px;
-  }
-
-  .modal__close-btn_type_preview {
-    top: -30px;
-    right: 0;
   }
 }
