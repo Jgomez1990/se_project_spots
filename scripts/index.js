@@ -40,7 +40,13 @@ const closeNewPostButton = newPostModal.querySelector(".modal__close-btn");
 closePreviewButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
+
+editProfileModal.addEventListener("click", handleOverlayClick);
+newPostModal.addEventListener("click", handleOverlayClick);
+previewModal.addEventListener("click", handleOverlayClick);
+
 const newPostFormElement = newPostModal.querySelector(".modal__form");
+const cardSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
 const cardImageInput = newPostModal.querySelector("#card-image-input");
 
@@ -58,11 +64,30 @@ const cardsList = document.querySelector(".cards__list");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscape);
 }
+
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
+function handleOverlayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
+  }
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -111,9 +136,9 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  closeModal(newPostModal);
-
   evt.target.reset();
+  disableButton(cardSubmitBtn, settings);
+  closeModal(newPostModal);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -128,6 +153,11 @@ function handleProfileFormSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  resetValidation(
+    editProfileFormElement,
+    [profileNameInput, profileDescriptionInput],
+    settings,
+  );
   openModal(editProfileModal);
 });
 

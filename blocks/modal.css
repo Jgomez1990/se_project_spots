@@ -49,6 +49,10 @@
   opacity: 0.8;
 }
 
+.modal__submit-btn_disabled {
+  opacity: 0.5;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -98,6 +102,10 @@
   color: rgba(33, 33, 33, 0.4);
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -122,6 +130,16 @@
   background-position: center;
   background-size: contain;
   background-color: transparent;
+}
+
+.modal__error {
+  display: block;
+  color: red;
+  margin-top: 8px;
+}
+
+.modal__error_visible {
+  display: block;
 }
 
 .modal__close-btn:hover {
